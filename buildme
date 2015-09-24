@@ -2,6 +2,7 @@
 
 if [ "armv6l" = `arch` ] || [ "armv7l" = `arch` ]; then
 	# Native compile on the Raspberry Pi
+	export LDFLAGS="-Wl,--no-as-needed"
 	mkdir -p build/raspberry/release
 	pushd build/raspberry/release
 	cmake -DCMAKE_BUILD_TYPE=Release ../../..
